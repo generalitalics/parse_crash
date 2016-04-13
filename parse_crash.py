@@ -26,12 +26,14 @@ result = {}
 #line - это строка во всем lines
 for line in lines:
     # в переменную l записывается list со значениями из каждого line
-    print line
     l = line.split(",")
     key = l[5]
+    print key
     # с помощью регулярных выражений убираем лишнее
     key = re.sub(r"\d+-\d", "", key)
+    print key
     key = re.sub(r"\d+$", "", key)
+    print key
     if result.get(key, False) is False:
         result[key] = []
     result[key].append("|".join(l))
