@@ -37,6 +37,7 @@ for line in lines:
     if result.get(key, False) is False:
         result[key] = []
     print result.get(key, False)
+    # result - это список со значениями через знак "|"
     result[key].append("|".join(l))
 
 for k, s in result.iteritems():
@@ -48,4 +49,4 @@ for k, s in result.iteritems():
 # сколько выполнялась это чудесная програмуля
 time_end = datetime.now()
 time_delta = time_start - time_end
-print "Total time: %d s" % -time_delta.total_seconds
+print "Total time: %d s" % -time_delta.total_seconds()
