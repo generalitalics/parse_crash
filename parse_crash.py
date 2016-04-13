@@ -33,6 +33,7 @@ for line in lines:
     # с помощью регулярных выражений убираем лишнее
     key = re.sub(r"\d+-\d", "", key)
     key = re.sub(r"\d+$", "", key)
+    #начало магии
     if result.get(key, False) is False:
         result[key] = []
     print result.get(key, False)
@@ -40,10 +41,11 @@ for line in lines:
 
 for k, s in result.iteritems():
     text = "".join(s)
+    # конец магии
     with open(os.path.join(".", res_dir, k + ".csv"), "w") as w:
         w.write(text)
 
 # сколько выполнялась это чудесная програмуля
 time_end = datetime.now()
 time_delta = time_start - time_end
-print "Total time: %d s" % -time_delta.total_seconds()
+print "Total time: %d s" % -time_delta.total_seconds
