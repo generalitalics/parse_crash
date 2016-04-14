@@ -17,7 +17,7 @@ with open(source) as f:
     lines = f.readlines()
 
 
-res_dir = os.path.join(".", "results")
+res_dir = os.path.join(".", "for Lera")
 print 'res_dir = '+res_dir
 if not os.path.exists(res_dir):
     os.makedirs(res_dir)
@@ -27,12 +27,12 @@ result = {}
 #line - это строка во всем lines
 for line in lines:
 # в переменную l записывается list со значениями из каждого line
-    l = line.split(",")
-    key = l[5]
+    l = line.split(";")
+    key = l[4]
 #print key
 # с помощью регулярных выражений убираем лишнее
-    key = re.sub(r"\d+-\d", "", key)
-    key = re.sub(r"\d+$", "", key)
+#   key = re.sub(r"\d+-\d", "", key)
+#   key = re.sub(r"\d+$", "", key)
     #начало магии
     #вроде что-то типо проверки на отличную от других типов строк
     if result.get(key, False) is False:
@@ -49,7 +49,7 @@ for k, s in result.iteritems():
     with open(os.path.join(".", res_dir, k + ".csv"), "w") as w:
         w.write(text)
 
-# сколько выполнялась это чудесная програмуля 
+# сколько выполнялась это чудесная програмуля
 time_end = datetime.now()
 time_delta = time_start - time_end
 print "Total time: %d s" % -time_delta.total_seconds()
