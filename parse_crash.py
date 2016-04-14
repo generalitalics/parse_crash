@@ -49,7 +49,7 @@ for k, s in result.iteritems():
     with open(os.path.join(".", res_dir, k + ".csv"), "w") as w:
         w.write(text)
 
-# сколько выполнялась это чудесная програмуля
+# сколько выполнялась это чудесная програмуля 
 time_end = datetime.now()
 time_delta = time_start - time_end
 print "Total time: %d s" % -time_delta.total_seconds()
