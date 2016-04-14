@@ -26,22 +26,25 @@ if not os.path.exists(res_dir):
 result = {}
 #line - это строка во всем lines
 for line in lines:
-    # в переменную l записывается list со значениями из каждого line
+# в переменную l записывается list со значениями из каждого line
     l = line.split(",")
     key = l[5]
-    print key
-    # с помощью регулярных выражений убираем лишнее
+#print key
+# с помощью регулярных выражений убираем лишнее
     key = re.sub(r"\d+-\d", "", key)
     key = re.sub(r"\d+$", "", key)
     #начало магии
+    #вроде что-то типо проверки на отличную от других типов строк
     if result.get(key, False) is False:
         result[key] = []
-    print result.get(key, False)
+    #print result.get(key, False)
     # result - это список со значениями через знак "|"
     result[key].append("|".join(l))
-
+# соединяет
 for k, s in result.iteritems():
+    print s
     text = "".join(s)
+    #print text
     # конец магии
     with open(os.path.join(".", res_dir, k + ".csv"), "w") as w:
         w.write(text)
