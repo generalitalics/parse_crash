@@ -3,10 +3,12 @@
 import os
 import re
 import sys
+import shutil
+
 from datetime import datetime
 
 time_start = datetime.now()
-print os.path
+#print os.path
 source = os.path.join(".", sys.argv[1])
 print 'sys.argv[0] = '+sys.argv[0]
 print 'sys.argv[1] = '+sys.argv[1]
@@ -17,8 +19,8 @@ with open(source) as f:
     lines = f.readlines()
 
 
-res_dir = os.path.join(".", "for Lera")
-print 'res_dir = '+res_dir
+res_dir = os.path.join(".", "for_Lera")
+print 'res_dir = '+ res_dir
 if not os.path.exists(res_dir):
     os.makedirs(res_dir)
 # makedirs - создает папку по директории с результатами, если ее нету
