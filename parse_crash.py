@@ -7,20 +7,22 @@ import shutil
 
 from datetime import datetime
 
+print '\n$$$$$$$$$$$$$$$$$$$$$$$ WAIT! Are you DELETE old files? $$$$$$$$$$$$$$$$$$$$$$$\n\n'
+
 time_start = datetime.now()
-#print os.path
 source = os.path.join(".", sys.argv[1])
-print 'sys.argv[0] = '+sys.argv[0]
-print 'sys.argv[1] = '+sys.argv[1]
 #source = sys.argv[1] - путь к файлу
-print 'source = ' + source
 data = None
 with open(source) as f:
     lines = f.readlines()
 
 
 res_dir = os.path.join(".", "for_Lera")
-print 'res_dir = '+ res_dir
+print 'Running      : [' + sys.argv[0] + ']'
+print 'Conversion   : [' + sys.argv[1] + ']'
+print 'In directory : [' + res_dir + ']\n'
+print 'Wait...',
+
 if not os.path.exists(res_dir):
     os.makedirs(res_dir)
 # makedirs - создает папку по директории с результатами, если ее нету
@@ -55,7 +57,7 @@ for k, s in result.iteritems():
     with open(os.path.join(".", res_dir, k + ".csv"), "w") as w:
         w.write(text)
 '''
-
+print 'OK'
 # сколько выполнялась это чудесная програмуля
 time_end = datetime.now()
 time_delta = time_start - time_end
